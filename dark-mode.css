@@ -22,3 +22,26 @@ h1 {
 }
 
 /* Add more dark mode specific overrides here */
+/* Example styles to be applied when the 'dark-mode' class is on the body */
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+}
+
+body.dark-mode .content-box {
+    border-color: #333;
+}
+
+body.dark-mode h1 {
+    color: #eee;
+}
+
+body.dark-mode .theme-button {
+    background-color: #333;
+    color: #f0f0f0;
+    border-color: #555;
+}
+
+body.dark-mode .theme-button:hover {
+    background-color: #555;
+}

@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Theme Switch Test</title>
-    <link rel="stylesheet" href="style.css"> <link rel="stylesheet" href="dark-mode.css" media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dark-mode.css" media="(prefers-color-scheme: dark)">
     <link rel="stylesheet" href="pink-mode.css" title="pink">
     <style>
         body {
@@ -37,17 +38,13 @@
     </style>
 </head>
 <body>
-<div class="theme-switcher">
-  <button data-theme-option="light">Light</button>
-  <button data-theme-option="dark">Dark</button>
-  <button data-theme-option="pink">Pink</button>
-</div>
-
-    <div class="theme-switcher">
-        <button class="theme-button" onclick="setTheme('')">Light Mode (Default)</button>
-        <button class="theme-button" onclick="setTheme('pink')">Pink Mode</button>
-        <button class="theme-button" onclick="toggleDarkMode()">Toggle Dark Mode</button>
-    </div>
+    <section>
+        <div class="theme-switcher">
+            <button class="theme-button" onclick="setTheme('')" data-theme-option="light">Light</button>
+            <button class="theme-button" onclick="setTheme('pink')" data-theme-option="pink">Pink</button>
+            <button class="theme-button" onclick="toggleDarkMode()" data-theme-option="dark">Dark Mode</button>
+        </div>
+    </section>
 
     <div class="content-box">
         <h1>Welcome!</h1>
@@ -65,20 +62,16 @@
             links.forEach(link => {
                 link.disabled = link.title !== themeName;
             });
-            // Optionally, store the theme preference in local storage
             localStorage.setItem('selectedTheme', themeName);
         }
 
         function toggleDarkMode() {
-            // This is a basic toggle. For more robust dark mode handling,
-            // you might want to dynamically add/remove a dark mode stylesheet.
             const body = document.body;
             body.classList.toggle('dark-mode');
             const isDarkMode = body.classList.contains('dark-mode');
             localStorage.setItem('darkMode', isDarkMode);
         }
 
-        // Check for previously selected theme on page load
         document.addEventListener('DOMContentLoaded', () => {
             const savedTheme = localStorage.getItem('selectedTheme');
             if (savedTheme) {

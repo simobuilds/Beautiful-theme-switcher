@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Switch Test</title>
+    <link rel="stylesheet" href="style.css"> <link rel="stylesheet" href="dark-mode.css" media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="pink-mode.css" title="pink">
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+        }
+
+        .theme-switcher {
+            margin-bottom: 20px;
+        }
+
+        .theme-button {
+            padding: 8px 15px;
+            margin-right: 10px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+        }
+
+        .theme-button:hover {
+            background-color: #e0e0e0;
+        }
+
+        .content-box {
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="theme-switcher">
+  <button data-theme-option="light">Light</button>
+  <button data-theme-option="dark">Dark</button>
+  <button data-theme-option="pink">Pink</button>
+</div>
+
+    <div class="theme-switcher">
+        <button class="theme-button" onclick="setTheme('')">Light Mode (Default)</button>
+        <button class="theme-button" onclick="setTheme('pink')">Pink Mode</button>
+        <button class="theme-button" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    </div>
+
+    <div class="content-box">
+        <h1>Welcome!</h1>
+        <p>This is some sample content to test the theme switching functionality.</p>
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ul>
+    </div>
+
+    <script>
+        function setTheme(themeName) {
+            const links = document.querySelectorAll('link[title]');
+            links.forEach(link => {
+                link.disabled = link.title !== themeName;
+            });
+            // Optionally, store the theme preference in local storage
+            localStorage.setItem('selectedTheme', themeName);
+        }
+
+        function toggleDarkMode() {
+            // This is a basic toggle. For more robust dark mode handling,
+            // you might want to dynamically add/remove a dark mode stylesheet.
+            const body = document.body;
+            body.classList.toggle('dark-mode');
+            const isDarkMode = body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+        }
+
+        // Check for previously selected theme on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('selectedTheme');
+            if (savedTheme) {
+                setTheme(savedTheme);
+            }
+
+            const savedDarkMode = localStorage.getItem('darkMode');
+            if (savedDarkMode === 'true') {
+                document.body.classList.add('dark-mode');
+            }
+        });
+    </script>
+
+</body>
+</html>

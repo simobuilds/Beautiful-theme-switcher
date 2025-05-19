@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Theme Switch Test</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="dark-mode.css" media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="dark-mode.css" title="dark">
     <link rel="stylesheet" href="pink-mode.css" title="pink">
     <style>
         body {
@@ -45,7 +45,7 @@
         <div class="theme-switcher">
             <button class="theme-button" onclick="setTheme('')" data-theme-option="light">Light</button>
             <button class="theme-button" onclick="setTheme('pink')" data-theme-option="pink">Pink</button>
-            <button class="theme-button" onclick="toggleDarkMode()" data-theme-option="dark">Dark Mode</button>
+            <button class="theme-button" onclick="setTheme('dark')" data-theme-option="dark">Dark Mode</button>
         </div>
     </section>
 

@@ -39,3 +39,8 @@ p {
 }
 
 /* You can add more default styles here */
+.theme-button.active {
+    background-color: #bbb; /* Example active state color */
+    color: #fff;
+    border-color: #888;
+}

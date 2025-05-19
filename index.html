@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Theme Switch Test</title>
     <link rel="stylesheet" href="style.css"> 
-    <link rel="stylesheet" href="dark-mode.css" media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="dark-mode.css" title="dark">
     <link rel="stylesheet" href="pink-mode.css" title="pink">
     <style>
         body {
@@ -70,14 +70,7 @@
             localStorage.setItem('selectedTheme', themeName);
         }
 
-        function toggleDarkMode() {
-            // This is a basic toggle. For more robust dark mode handling,
-            // you might want to dynamically add/remove a dark mode stylesheet.
-            const body = document.body;
-            body.classList.toggle('dark-mode');
-            const isDarkMode = body.classList.contains('dark-mode');
-            localStorage.setItem('darkMode', isDarkMode);
-        }
+        
 
         // Check for previously selected theme on page load
         document.addEventListener('DOMContentLoaded', () => {
